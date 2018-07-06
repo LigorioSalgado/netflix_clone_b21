@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import User from './src/models/users';
+import {createToken} from './src/resolvers/create'
 
 const app = express();
 const PORT = process.env.PORT || 3000
@@ -24,6 +25,22 @@ app.post('/signup',(req,res) => {
         return res.json(err);
     })
 });
+
+
+app.post('/login', (req,res) => {
+
+    const token  = createToken(req.body.email,req.body.password).then((token) => {
+
+        res.status(201).json({token});
+
+    }).catch(() => {
+        res.status(403).json({
+            message:"Login Failed!!!! :( Invalid credentials"
+        })
+    })
+
+})
+
 
 app.get('/',(req,res) => {
     //req = request
