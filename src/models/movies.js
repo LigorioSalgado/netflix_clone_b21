@@ -12,9 +12,9 @@ const MovieSchema = new Schema({
         type:String,
         required:true
     },
-    "genere":{
-            type:String,
-            required:true
+    "genre":{
+            type:Schema.Types.ObjectId,
+            ref:'Genre'
     },
     "url":{
         type:String,
@@ -32,8 +32,8 @@ const MovieSchema = new Schema({
         default:0
     },
     "rating":{
-        type:String,
-        required:true
+        type:Schema.Types.ObjectId,
+        ref:"Rating"
     },
     "is_active":{
         type:Boolean,
