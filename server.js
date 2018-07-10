@@ -2,7 +2,11 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import User from './src/models/users';
-import {createToken} from './src/resolvers/create'
+import {createToken} from './src/resolvers/create';
+
+import graphQLHTTP from 'express-graphql';
+import schema from './src/graphql';
+
 
 const app = express();
 const PORT = process.env.PORT || 3000
@@ -48,6 +52,12 @@ app.get('/',(req,res) => {
     res.send("Estoy funcionando :)");
 })
 
+
+app.use('/graphql',graphQLHTTP((req,res) =>({
+    schema,
+    graphiql:true,
+    pretty:true
+})))
 
 
 app.listen(PORT,() =>{
