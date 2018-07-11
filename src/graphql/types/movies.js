@@ -5,7 +5,8 @@ import {
     GraphQLObjectType,
     GraphQLBoolean,
     GraphQLNonNull,
-    GraphQLFloat
+    GraphQLFloat,
+    GraphQLList
 } from 'graphql'
 
 import {GenreType} from './genres';
@@ -46,7 +47,7 @@ export const MovieType =  new GraphQLObjectType({
                 type:GraphQLString
             },
             rate:{
-               type:GraphQLFloat
+               type:GraphQLList(GraphQLFloat)
             },   
             rating:{
                 type:RatingType,

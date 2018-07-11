@@ -28,8 +28,8 @@ const MovieSchema = new Schema({
         type:String
     },
     "rate":{
-        type:Number,
-        default:0
+        type:[Number]
+        
     },
     "rating":{
         type:Schema.Types.ObjectId,
