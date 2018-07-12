@@ -31,7 +31,8 @@ export const verifyToken = (token) => {
         return user
 
     }catch(err){
-        throw Error("Erro not expected");
+        
+        throw Error(err);
         
     }
 }

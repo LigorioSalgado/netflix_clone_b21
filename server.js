@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import User from './src/models/users';
 import {createToken} from './src/resolvers/create';
-
+import {verifyToken} from './src/resolvers/verify';
 import graphQLHTTP from 'express-graphql';
 import schema from './src/graphql';
 
@@ -52,11 +52,27 @@ app.get('/',(req,res) => {
     res.send("Estoy funcionando :)");
 })
 
+//Middleware para  proteger graphql
+
+app.use('/graphql',(req,res,next) => {
+    const token  = req.headers['authorization'];
+    try{
+        req.user = verifyToken(token)
+        next();
+    }catch(error){
+        res.status(401).json({message:error.message})
+    }
+})
+
 
 app.use('/graphql',graphQLHTTP((req,res) =>({
     schema,
     graphiql:true,
-    pretty:true
+    pretty:true,
+    context:{
+        user:req.user
+    }
+    
 })))
 
 

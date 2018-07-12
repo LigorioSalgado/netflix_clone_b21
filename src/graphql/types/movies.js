@@ -102,3 +102,13 @@ export const MovieInputType = new GraphQLInputObjectType({
 
 
 })
+
+export const RateMovieType = new GraphQLInputObjectType({
+    name:"addRate",
+    description:"Agrega rate a Movie",
+    fields:() =>({
+        rate:{
+            type:GraphQLFloat
+        }
+    })
+});
