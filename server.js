@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import User from './src/models/users';
 import {createToken} from './src/resolvers/create';
 import {verifyToken} from './src/resolvers/verify';
@@ -17,7 +18,7 @@ db.on('error',() => console.log("Error al conectar a la BD"))
     .once('open',() => console.log("Conectado a la BD!!"))
 
 app.use(bodyParser.json());
-
+app.use(cors());
 
 app.post('/signup',(req,res) => {
     let user = req.body
