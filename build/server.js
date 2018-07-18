@@ -12,6 +12,10 @@ var _bodyParser = require('body-parser');
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
+var _cors = require('cors');
+
+var _cors2 = _interopRequireDefault(_cors);
+
 var _users = require('./src/models/users');
 
 var _users2 = _interopRequireDefault(_users);
@@ -42,6 +46,7 @@ db.on('error', function () {
 });
 
 app.use(_bodyParser2.default.json());
+app.use((0, _cors2.default)());
 
 app.post('/signup', function (req, res) {
     var user = req.body;
