@@ -26,10 +26,12 @@ var createToken = exports.createToken = function createToken(email, password) {
     }
 
     console.log(email, password);
-    var user = _users2.default.findOne({ 'email': email }).then(function (user) {
-        console.log(user);
-        var compare = new Promise(function (resolve, reject) {
 
+    var compare = new Promise(function (resolve, reject) {
+
+        _users2.default.findOne({ 'email': email }).then(function (user) {
+            console.log(user);
+            if (!user) reject(false);
             user.comparePassword(password, function (err, isMatch) {
                 console.log(isMatch);
                 if (isMatch) {
@@ -44,12 +46,10 @@ var createToken = exports.createToken = function createToken(email, password) {
                     reject(false);
                 }
             });
+        }).catch(function (err) {
+            return err;
         });
-
-        return compare;
-    }).catch(function (err) {
-        return err;
     });
 
-    return user;
+    return compare;
 };

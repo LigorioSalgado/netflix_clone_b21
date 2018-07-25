@@ -48,7 +48,10 @@ export const MovieType =  new GraphQLObjectType({
             },
             rate:{
                type:GraphQLList(GraphQLFloat)
-            },   
+            }, 
+            image_url:{
+                type:GraphQLString
+            },  
             rating:{
                 type:RatingType,
                 resolve(movie){
@@ -94,6 +97,9 @@ export const MovieInputType = new GraphQLInputObjectType({
             year:{
                 type:GraphQLString
             }, 
+            image_url:{
+                type:GraphQLString
+            },
             rating:{
                 type:GraphQLString
             }

@@ -57,6 +57,9 @@ var MovieType = exports.MovieType = new _graphql.GraphQLObjectType({
             rate: {
                 type: (0, _graphql.GraphQLList)(_graphql.GraphQLFloat)
             },
+            image_url: {
+                type: _graphql.GraphQLString
+            },
             rating: {
                 type: _ratings.RatingType,
                 resolve: function resolve(movie) {
@@ -99,6 +102,9 @@ var MovieInputType = exports.MovieInputType = new _graphql.GraphQLInputObjectTyp
                 type: _graphql.GraphQLString
             },
             year: {
+                type: _graphql.GraphQLString
+            },
+            image_url: {
                 type: _graphql.GraphQLString
             },
             rating: {

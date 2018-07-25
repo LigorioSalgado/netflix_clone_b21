@@ -24,6 +24,10 @@ const MovieSchema = new Schema({
         type:String,
         required:true
     },
+    "image_url":{
+        type:String,
+        required:true
+    },
     "year":{
         type:String
     },
