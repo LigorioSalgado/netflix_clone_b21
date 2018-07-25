@@ -20,7 +20,7 @@ var queryAllRating = {
     resolve: function resolve() {
         var ratings = _ratings2.default.find().exec();
         if (!ratings) throw new Error("Error al traer de la bd");
-        return raitings;
+        return ratings;
     }
 };
 

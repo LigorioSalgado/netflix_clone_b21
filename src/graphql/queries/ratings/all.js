@@ -11,7 +11,7 @@ const queryAllRating = {
     resolve(){
         const ratings = Rating.find().exec()
         if(!ratings) throw new  Error ("Error al traer de la bd")
-        return raitings
+        return ratings
     }
 
 
