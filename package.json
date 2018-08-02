@@ -4,16 +4,30 @@
   "description": "Este es un clone de nertflix sin fines de lucro :)",
   "main": "server.js",
   "scripts": {
-    "prebuild":"rm -rf ./build",
-    "build":"babel -d ./build . --ignore node_modules --copy-files",
-    "start":"node ./build/server.js",
+    "prebuild": "rm -rf ./build",
+    "build": "babel -d ./build . --ignore node_modules --copy-files",
+    "start": "node ./build/server.js",
     "server": "nodemon server.js --exec babel-node --presets es2015,stage-2",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage"
   },
   "keywords": [
     "netflix",
     "luismi"
   ],
+  "jest":{
+    "testEnvironment":"node",
+    "testPathIgnorePatterns":[
+      "/node_modules"
+    ],
+    "coverageReporters":[
+      "lcov",
+      "html",
+      "json"
+    ],
+    "moduleNameMapper":{
+      "^mongoose$":"<rootDir>/node_modules/mongoose"
+    }
+  },
   "author": "LESF",
   "license": "ISC",
   "dependencies": {
@@ -23,6 +37,8 @@
     "express": "^4.16.3",
     "express-graphql": "^0.6.12",
     "graphql": "^0.13.2",
+    "jest": "^23.4.2",
+    "jest-cli": "^23.4.2",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.0"
   },
