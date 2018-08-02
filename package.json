@@ -8,7 +8,7 @@
     "build": "babel -d ./build . --ignore node_modules --copy-files",
     "start": "node ./build/server.js",
     "server": "nodemon server.js --exec babel-node --presets es2015,stage-2",
-    "test": "jest --coverage"
+    "test": "jest --forceExit"
   },
   "keywords": [
     "netflix",

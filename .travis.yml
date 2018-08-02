@@ -1,0 +1,11 @@
+language: node_js
+node_js: "-'8.5.0'"
+deploy:
+  provider: heroku
+  api_key:
+    secure: HILPfZFGSVRHuFAsOhHaLKJVIHXOJdw4syRPAD0qd4arhpv9isTyWM7qBHrrDX/7zZRQYsgc+j97hAm53RoM5mljIAvIQjEO9De4BDTKi2FOzBjoLii68VfpGuPQlJKZaBop2KQbz03vsB/fLMu/09QY1p1INGHQwZHMcI1kYbWemOX2KQVduhk0Bu34fLQhWv8fqmRYOJ/1Pxe5uXJXTXF0hQ4j3QV7q/EpXo4tOWmEdbYmsVo5pVxSUkBpSmX93xg6hxpGpNnh5qTTWR27m+YhOEALeRz7Rl7V4tN7FdcGUrMTb7zJD5ujk4Uh+o9XwU2qbbJJZGrAl9MRklaPn1II+tmKEEWp7J+Ug7SrEfEQD3g/ouCcxi3NSR5gtwqf5UpnLKkHgoJDVSvkgYDqBNRHH0FKprpcWfphYjODAblZRWA6+2VnWfjvK+L/osB3KM4OQaWk7xQGk8DBZa3IwEFFOEQI1TQjw5uE0aCCYRYb75yP8xrqOVKGSf0LEKaQUm7CaTZ7AdMIVAkgSrBY96dagW/3EzKwX6P9eCp02jGxsL89kUZ7ShYwvVFu8w7As1b+YQbqdhTLZwsoYlS0gKA/1ra1BHbEkbYhi4KmWb0Qbh2OYr7j3aP516hdNyZp1XKIvpHiLwbiriMwZ/8gDxA/ZRG0ZzuYr4OONu4pmwE=
+  app: netflixb21
+  on:
+    repo: LigorioSalgado/netflix_clone_b21
+    branch: master
+  skip_cleanup: true
